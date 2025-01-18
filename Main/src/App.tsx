@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import io from "socket.io-client";
 import stepData from "./data/values.json"; // Import JSON file
+import MultiplierProgressBar from '@/components/ui/multiplier-progress-bar';
 import {
   Sidebar,
   SidebarContent,
@@ -11,7 +12,7 @@ import {
 } from "./components/ui/sidebar";
 
 export default function App() {
-  const [steps, setSteps] = useState(1000000);
+  const [steps, setSteps] = useState(30001);
   const [isConnected, setIsConnected] = useState(false);
   const [scale, setScale] = useState(1); // State to manage the slider value (1 to 5)
 
@@ -78,7 +79,7 @@ export default function App() {
 
       {/* Main Content */}
       <div className="bg-gray-100 w-screen h-screen flex justify-center items-center fixed top-0 right-0 z-10">
-        <div className="bg-white w-full max-w-md h-[90%] md:h-[80%] p-6 rounded-lg shadow-xl flex flex-col">
+        <div className="bg-white w-full max-w-md h-[90%] md:h-[80%] p-6 rounded-3xl shadow-xl flex flex-col">
           {/* Header */}
           <div className="text-center mb-6">
             <h1 className="text-3xl font-bold">Hi User! 👋</h1>
@@ -133,26 +134,13 @@ export default function App() {
 
           {/* Milestones */}
           <div className="my-6">
-            {stepData.milestones.map((milestone) => {
-              const progress = Math.min(
-                (steps / milestone.steps) * 100,
-                100
-              ).toFixed(2); // Calculate progress percentage
-              return (
-                <div key={milestone.name} className="my-4">
-                  <p className="text-center font-bold mb-2">{milestone.name}</p>
-                  <div className="w-full bg-gray-200 rounded-full h-4">
-                    <div
-                      className="bg-orange-500 h-4 rounded-full"
-                      style={{ width: `${progress}%` }}
-                    ></div>
-                  </div>
-                  <p className="text-sm text-center mt-2">
-                    {progress}% complete
-                  </p>
-                </div>
-              );
-            })}
+            {stepData.milestones.map((milestone) => (
+              <MultiplierProgressBar
+                key={milestone.name}
+                milestone={milestone}
+                steps={steps}
+              />
+            ))}
           </div>
 
           {/* Footer Navigation */}
