@@ -12,6 +12,18 @@ let currentSteps = 0;
 app.use(cors());
 app.use(express.json());
 
+
+// WebSocket Connection
+io.on("connection", (socket) => {
+    console.log("Client connected");
+    socket.emit("updateSteps", currentSteps); // Send initial step count
+  
+    socket.on("disconnect", () => {
+      console.log("Client disconnected");
+    });
+  });
+
+  
 // HTTP POST Endpoint
 app.post("/steps", (req, res) => {
   console.log("request recieved");
@@ -26,17 +38,10 @@ app.post("/steps", (req, res) => {
   }
 });
 
-// WebSocket Connection
-io.on("connection", (socket) => {
-  console.log("Client connected");
-  socket.emit("updateSteps", currentSteps); // Send initial step count
 
-  socket.on("disconnect", () => {
-    console.log("Client disconnected");
+
+  // Start Server
+  server.listen(3001, "0.0.0.0", () => {
+    console.log("Server running on http://100.66.94.140:3001");
   });
-});
-
-// Start Server
-server.listen(3001, "0.0.0.0", () => {
-  console.log("Server running on http://100.66.94.140:3001");
-});
+  
