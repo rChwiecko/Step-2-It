@@ -23,12 +23,44 @@
     ],
     "milestones": [
         {
+            "name": "Burger",
+            "steps": 1
+        },
+        {
+            "name": "Oven",
+            "steps": 2
+        },
+        {
+            "name": "Toronto",
+            "steps": 2000
+        },
+        {
+            "name": "LA",
+            "steps": 3100
+        },
+        {
+            "name": "Empire State",
+            "steps": 4032
+        },
+        {
+            "name": "CN Tower",
+            "steps": 5624
+        },
+        {
+            "name": "Burj Khalifa",
+            "steps": 7654
+        },
+        {
             "name": "Mercury",
             "steps": 10000
         },
         {
             "name": "Earth",
             "steps": 50000
+        },
+        {
+            "name": "Solar System Edge",
+            "steps": 9321000000
         }
     ]
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import io from "socket.io-client";
-import stepData from "./data/values.json"; // Import JSON file
+import stepData from "./data/values.json";
 import MultiplierProgressBar from '@/components/ui/multiplier-progress-bar';
 import {
   Sidebar,
@@ -11,56 +11,74 @@ import {
   SidebarTrigger,
 } from "./components/ui/sidebar";
 
+interface Scale {
+  name: string;
+  steps: number;
+}
+
+interface Milestone {
+  name: string;
+  steps: number;
+}
+
+const scaleMilestoneMap: { [key: string]: string[] } = {
+  "fridge": ["Burger", "Oven"],
+  "block": ["Toronto", "LA"],
+  "everest": ["Empire State", "CN Tower", "Burj Khalifa"],
+  "moon": ["Mercury", "Earth"],
+  "edge of the observable universe": ["Solar System Edge"]
+};
+
 export default function App() {
   const [steps, setSteps] = useState(30001);
   const [isConnected, setIsConnected] = useState(false);
-  const [scale, setScale] = useState(1); // State to manage the slider value (1 to 5)
+  const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    // Initialize the socket connection
     const socket = io("http://localhost:3001", {
       reconnection: true,
       reconnectionAttempts: Infinity,
       reconnectionDelay: 1000,
     });
 
-    // Connection established
     socket.on("connect", () => {
       console.log("WebSocket connected successfully!");
       setIsConnected(true);
     });
 
-    // Handle connection errors
     socket.on("connect_error", (err) => {
       console.error("WebSocket connection error:", err);
       setIsConnected(false);
     });
 
-    // Connection lost
     socket.on("disconnect", () => {
       console.warn("WebSocket disconnected.");
       setIsConnected(false);
     });
 
-    // Listen for step updates
-    socket.on("updateSteps", (newSteps) => {
+    socket.on("updateSteps", (newSteps: number) => {
       console.log("Received updated steps:", newSteps);
       setSteps(newSteps);
     });
 
-    // Cleanup on component unmount
     return () => {
       console.log("Cleaning up WebSocket connection...");
       socket.off("connect");
       socket.off("connect_error");
       socket.off("disconnect");
       socket.off("updateSteps");
-      socket.disconnect(); // Close the connection
+      socket.disconnect();
     };
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
 
-  // Get the current scale object from the JSON file
   const currentScale = stepData.scales[scale - 1];
+
+  const getFilteredMilestones = () => {
+    const allowedMilestones = scaleMilestoneMap[currentScale.name] || [];
+    return stepData.milestones.filter(milestone => 
+      allowedMilestones.includes(milestone.name)
+    );
+  };
 
   return (
     <div className="flex">
@@ -74,19 +92,19 @@ export default function App() {
           </SidebarContent>
           <SidebarFooter />
         </Sidebar>
-        <SidebarTrigger className="p-4  rounded-full shadow-lg fixed top-4 left-4 z-50"></SidebarTrigger>
+        <SidebarTrigger className="p-4 rounded-full shadow-lg fixed top-4 left-4 z-50" />
       </div>
 
       {/* Main Content */}
       <div className="bg-gray-100 w-screen h-screen flex justify-center items-center fixed top-0 right-0 z-10">
-        <div className="bg-white w-full max-w-md h-[90%] md:h-[80%] p-6 rounded-3xl shadow-xl flex flex-col">
+        <div className="bg-white w-full max-w-md h-screen p-6 rounded-3xl shadow-xl flex flex-col">
           {/* Header */}
-          <div className="text-center mb-6">
+          <div className="text-center mb-4">
             <h1 className="text-3xl font-bold">Hi User! 👋</h1>
           </div>
 
           {/* Tabs */}
-          <div className="flex justify-around mb-4">
+          <div className="flex justify-around mb-2">
             <button className="text-orange-500 font-bold">Day</button>
             <button className="text-gray-500">Week</button>
             <button className="text-gray-500">Month</button>
@@ -94,10 +112,10 @@ export default function App() {
           </div>
 
           {/* Steps Section */}
-          <div className="text-center my-6">
-            <h2 className="text-5xl font-bold">{steps}</h2>
+          <div className="text-center mb-4">
+            <h2 className="text-5xl font-bold">{steps.toLocaleString()}</h2>
             <p className="text-lg">steps</p>
-            <p className="text-sm text-gray-600 mt-2">
+            <p className="text-sm text-gray-600 mt-1">
               You are{" "}
               <span className="font-bold">
                 {Math.max(0, currentScale.steps - steps).toLocaleString()}
@@ -111,7 +129,7 @@ export default function App() {
           </div>
 
           {/* Slider */}
-          <div className="my-4">
+          <div className="mb-4">
             <input
               type="range"
               className="w-full"
@@ -119,22 +137,21 @@ export default function App() {
               max={stepData.scales.length}
               step="1"
               value={scale}
-              onChange={(e) => setScale(Number(e.target.value))} // Update scale value
+              onChange={(e) => setScale(Number(e.target.value))}
             />
-            <div className="flex justify-between text-sm mt-2">
+            <div className="flex justify-between text-sm mt-1">
               <span>Small scale</span>
               <span>Large scale</span>
             </div>
-            {/* Display the scale value */}
-            <p className="text-center text-lg mt-4">
+            <p className="text-center text-lg mt-2">
               Selected Scale:{" "}
               <span className="font-bold">{currentScale.name}</span>
             </p>
           </div>
 
           {/* Milestones */}
-          <div className="my-6">
-            {stepData.milestones.map((milestone) => (
+          <div className="flex-grow">
+            {getFilteredMilestones().map((milestone) => (
               <MultiplierProgressBar
                 key={milestone.name}
                 milestone={milestone}
@@ -144,10 +161,10 @@ export default function App() {
           </div>
 
           {/* Footer Navigation */}
-          <div className="flex justify-around border-t pt-4 mt-auto">
+          <div className="flex justify-around border-t pt-4">
             <button className="text-orange-500 font-bold">Summary</button>
-            <button>Leaderboards</button>
-            <button>Settings</button>
+            <button className="text-gray-500">Leaderboards</button>
+            <button className="text-gray-500">Settings</button>
           </div>
         </div>
       </div>

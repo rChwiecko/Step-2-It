@@ -43,7 +43,7 @@ const MultiplierProgressBar: React.FC<MultiplierProgressBarProps> = ({
           <span className="text-orange-500 font-bold">{multiplier}</span>
         )}
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-4 relative">
+      <div className="w-full bg-gray-200 rounded-full h-4 relative overflow-hidden">
         <div
           className="bg-orange-500 h-4 rounded-full transition-all duration-300"
           style={{ width: `${displayProgress}%` }}
