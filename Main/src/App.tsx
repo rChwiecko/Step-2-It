@@ -96,36 +96,39 @@ export default function App() {
       </div>
 
       {/* Main Content */}
-      <div className="bg-gray-100 w-screen h-screen flex justify-center items-center fixed top-0 right-0 z-10">
-        <div className="bg-white w-full max-w-md h-screen p-6 rounded-3xl shadow-xl flex flex-col">
+      <div className="w-screen h-screen flex justify-center items-center fixed top-0 right-0 z-10">
+        <div className="bg-[#F9f9f9] w-full max-w-md h-screen p-6 rounded-3xl shadow-xl flex flex-col">
           {/* Header */}
-          <div className="text-center mb-4">
+          <div className="text-center mb-7">
             <h1 className="text-3xl font-bold">Hi User! 👋</h1>
           </div>
 
-          {/* Tabs */}
-          <div className="flex justify-around mb-2">
-            <button className="text-orange-500 font-bold">Day</button>
-            <button className="text-gray-500">Week</button>
-            <button className="text-gray-500">Month</button>
-            <button className="text-gray-500">Year</button>
-          </div>
+          {/* White Background Section */}
+          <div className="bg-white rounded-3xl p-6 mb-4">
+            {/* Tabs */}
+            <div className="flex justify-around mb-10">
+              <button className="text-orange-500 font-bold">Day</button>
+              <button className="text-gray-500">Week</button>
+              <button className="text-gray-500">Month</button>
+              <button className="text-gray-500">Year</button>
+            </div>
 
-          {/* Steps Section */}
-          <div className="text-center mb-4">
-            <h2 className="text-5xl font-bold">{steps.toLocaleString()}</h2>
-            <p className="text-lg">steps</p>
-            <p className="text-sm text-gray-600 mt-1">
-              You are{" "}
-              <span className="font-bold">
-                {Math.max(0, currentScale.steps - steps).toLocaleString()}
-              </span>{" "}
-              steps away from the{" "}
-              <span className="text-orange-500 font-bold">
-                {currentScale.name}
-              </span>
-              .
-            </p>
+            {/* Steps Section */}
+            <div className="text-center">
+              <h2 className="text-5xl font-bold mb-6">{steps.toLocaleString()}</h2>
+              <p className="text-lg">steps</p>
+              <p className="text-sm text-gray-600 mt-1">
+                You are{" "}
+                <span className="font-bold">
+                  {Math.max(0, currentScale.steps - steps).toLocaleString()}
+                </span>{" "}
+                steps away from the{" "}
+                <span className="text-orange-500 font-bold">
+                  {currentScale.name}
+                </span>
+                .
+              </p>
+            </div>
           </div>
 
           {/* Slider */}
