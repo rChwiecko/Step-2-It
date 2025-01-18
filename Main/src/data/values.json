@@ -1,5 +1,34 @@
 {
-    "moon": {
-        "steps": 477710000
-    }
+    "scales": [
+        {
+            "name": "fridge",
+            "steps": 50
+        },
+        {
+            "name": "block",
+            "steps": 500
+        },
+        {
+            "name": "everest",
+            "steps": 29032
+        },
+        {
+            "name": "moon",
+            "steps": 477710000
+        },
+        {
+            "name": "edge of the observable universe",
+            "steps": 46500000000000000
+        }
+    ],
+    "milestones": [
+        {
+            "name": "Mercury",
+            "steps": 10000
+        },
+        {
+            "name": "Earth",
+            "steps": 50000
+        }
+    ]
 }
