@@ -168,10 +168,19 @@ export default function App() {
           </div>
 
           {/* Footer Navigation */}
-          <div className="flex text-sm justify-around p-4 rounded-full bg-white w-full ">
-            <button className="text-orange-500 font-bold center"><img src={BarChartIcon}/>Summary</button>
-            <button className="text-gray-500"> <img src={ListIcon}/>Leaderboards</button>
-            <button className="text-gray-500"><img src={SettingsIcon}/>Settings</button>
+          <div className="flex text-sm justify-around p-4 rounded-full bg-white w-full">
+            <button className="text-orange-500 font-bold flex flex-col items-center justify-center">
+              <img src={BarChartIcon} className="mb-1" />
+              Summary
+            </button>
+            <button className="text-gray-500 flex flex-col items-center justify-center">
+              <img src={ListIcon} className="mb-1" />
+              Leaderboards
+            </button>
+            <button className="text-gray-500 flex flex-col items-center justify-center">
+              <img src={SettingsIcon} className="mb-1" />
+              Settings
+            </button>
           </div>
         </div>
       </div>
