@@ -36,7 +36,7 @@ const MultiplierProgressBar: React.FC<MultiplierProgressBarProps> = ({
   const displayProgress: number = getDisplayProgress(baseProgress);
 
   return (
-    <div className="my-4">
+    <div className="my-4 bg-white p-4 rounded-3xl ">
       <div className="flex justify-between items-center mb-2">
         <p className="font-bold">{milestone.name}</p>
         {multiplier && (

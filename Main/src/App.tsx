@@ -10,6 +10,9 @@ import {
   SidebarHeader,
   SidebarTrigger,
 } from "./components/ui/sidebar";
+import BarChartIcon from "./assets/bar-chart.svg";
+import ListIcon from "./assets/list.svg";
+import SettingsIcon from "./assets/settings.svg";
 
 interface Scale {
   name: string;
@@ -22,11 +25,11 @@ interface Milestone {
 }
 
 const scaleMilestoneMap: { [key: string]: string[] } = {
-  "fridge": ["Burger", "Oven"],
-  "block": ["Toronto", "LA"],
-  "everest": ["Empire State", "CN Tower", "Burj Khalifa"],
-  "moon": ["Mercury", "Earth"],
-  "edge of the observable universe": ["Solar System Edge"]
+  "Fridge": ["Burger", "Oven"],
+  "Block": ["Toronto", "LA"],
+  "Everest": ["Empire State", "CN Tower", "Burj Khalifa"],
+  "Moon": ["Mercury", "Earth"],
+  "Edge of the observable universe": ["Solar System Edge"]
 };
 
 export default function App() {
@@ -143,17 +146,18 @@ export default function App() {
               onChange={(e) => setScale(Number(e.target.value))}
             />
             <div className="flex justify-between text-sm mt-1">
-              <span>Small scale</span>
-              <span>Large scale</span>
+              <span className="text-xs text-gray-500">Small scale</span>
+              <span className="text-xs text-gray-500">Large scale</span>
             </div>
-            <p className="text-center text-lg mt-2">
+            {/*<p className="text-center text-lg mt-2">
               Selected Scale:{" "}
               <span className="font-bold">{currentScale.name}</span>
-            </p>
+            </p>*/}
           </div>
 
           {/* Milestones */}
-          <div className="flex-grow">
+          <div className="flex-grow
+          ">
             {getFilteredMilestones().map((milestone) => (
               <MultiplierProgressBar
                 key={milestone.name}
@@ -164,10 +168,10 @@ export default function App() {
           </div>
 
           {/* Footer Navigation */}
-          <div className="flex justify-around border-t pt-4">
-            <button className="text-orange-500 font-bold">Summary</button>
-            <button className="text-gray-500">Leaderboards</button>
-            <button className="text-gray-500">Settings</button>
+          <div className="flex text-sm justify-around p-4 rounded-full bg-white w-full ">
+            <button className="text-orange-500 font-bold center"><img src={BarChartIcon}/>Summary</button>
+            <button className="text-gray-500"> <img src={ListIcon}/>Leaderboards</button>
+            <button className="text-gray-500"><img src={SettingsIcon}/>Settings</button>
           </div>
         </div>
       </div>

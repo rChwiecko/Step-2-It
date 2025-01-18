@@ -1,23 +1,23 @@
 {
     "scales": [
         {
-            "name": "fridge",
+            "name": "Fridge",
             "steps": 50
         },
         {
-            "name": "block",
+            "name": "Block",
             "steps": 500
         },
         {
-            "name": "everest",
+            "name": "Everest",
             "steps": 29032
         },
         {
-            "name": "moon",
+            "name": "Moon",
             "steps": 477710000
         },
         {
-            "name": "edge of the observable universe",
+            "name": "Edge of the observable universe",
             "steps": 46500000000000000
         }
     ],
@@ -34,8 +34,13 @@
             "name": "Toronto",
             "steps": 2000
         },
+        
+    {
+            "name": "Western",
+            "steps": 2001
+        },
         {
-            "name": "LA",
+            "name": "Los Angeles",
             "steps": 3100
         },
         {
