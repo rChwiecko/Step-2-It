@@ -7,7 +7,7 @@ export default function App() {
 
   useEffect(() => {
     // Initialize the socket connection
-    const socket = io("http://localhost:3001" , {
+    const socket = io("http://localhost:3001", {
       reconnection: true, // Enable automatic reconnections
       reconnectionAttempts: Infinity, // Retry forever
       reconnectionDelay: 1000, // Delay between attempts (in ms)
@@ -49,7 +49,7 @@ export default function App() {
   }, []); // Empty dependency array ensures this runs only once
 
   return (
-    <div>
+    <div className="bg-red-200">
       <h1>Steps Tracker</h1>
       <p>Steps Today: {steps}</p>
       <p>Status: {isConnected ? "Connected" : "Disconnected"}</p>
