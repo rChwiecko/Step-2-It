@@ -10,15 +10,15 @@
         },
         {
             "name": "Everest",
-            "steps": 29032
+            "steps": 11609888
         },
         {
             "name": "Moon",
-            "steps": 477710000
+            "steps": 501840000
         },
         {
             "name": "Edge of the observable universe",
-            "steps": 46500000000000000
+            "steps": 46500000000000000000000000000000000000
         }
     ],
     "milestones": [
@@ -32,40 +32,40 @@
         },
         {
             "name": "Toronto",
-            "steps": 2000
+            "steps": 175,000
         },
         
     {
             "name": "Western",
-            "steps": 2001
+            "steps": 3017.6
         },
         {
             "name": "Los Angeles",
-            "steps": 3100
+            "steps": 93152
         },
         {
             "name": "Empire State",
-            "steps": 4032
+            "steps": 1576
         },
         {
             "name": "CN Tower",
-            "steps": 5624
+            "steps": 1776
         },
         {
             "name": "Burj Khalifa",
-            "steps": 7654
+            "steps": 2909
         },
         {
             "name": "Mercury",
-            "steps": 10000
+            "steps": 6401772
         },
         {
             "name": "Earth",
-            "steps": 50000
+            "steps": 501840000
         },
         {
             "name": "Solar System Edge",
-            "steps": 9321000000
+            "steps": 46500000000000000000000000000000000000
         }
     ]
 }
