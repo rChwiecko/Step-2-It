@@ -1,71 +1,146 @@
 {
     "scales": [
+      {
+        "name": "Fridge",
+        "steps": 50
+      },
+      {
+        "name": "Block",
+        "steps": 500
+      },
+      {
+        "name": "Everest",
+        "steps": 11609888
+      },
+      {
+        "name": "Moon",
+        "steps": 501840000
+      },
+      {
+        "name": "Edge of the observable universe",
+        "steps": 46500000000000000000000000000000000000
+      }
+    ],
+    "distanceMilestones": [
+      {
+        "name": "Toronto",
+        "steps": 175000
+      },
+      {
+        "name": "Western",
+        "steps": 3017
+      },
+      {
+        "name": "Los Angeles",
+        "steps": 93152
+      },
+      {
+        "name": "Empire State",
+        "steps": 1576
+      },
+      {
+        "name": "CN Tower",
+        "steps": 1776
+      },
+      {
+        "name": "Burj Khalifa",
+        "steps": 2909
+      },
+      {
+        "name": "Mercury",
+        "steps": 6401772
+      },
+      {
+        "name": "Earth",
+        "steps": 501840000
+      },
+      {
+        "name": "Solar System Edge",
+        "steps": 46500000000000000000000000000000000000
+      }
+    ],
+    "foodMilestones": [
         {
-            "name": "Fridge",
+            "name": "Celery Stick",
+            "steps": 10
+        },
+        {
+            "name": "Carrot",
             "steps": 50
         },
         {
-            "name": "Block",
-            "steps": 500
+            "name": "Apple",
+            "steps": 100
         },
         {
-            "name": "Everest",
-            "steps": 29032
+            "name": "Slice of Bread",
+            "steps": 200
         },
         {
-            "name": "Moon",
-            "steps": 477710000
+            "name": "Cookie",
+            "steps": 400
         },
         {
-            "name": "Edge of the observable universe",
-            "steps": 46500000000000000
-        }
-    ],
-    "milestones": [
-        {
-            "name": "Burger",
-            "steps": 1
+            "name": "Donut",
+            "steps": 800
         },
         {
-            "name": "Oven",
-            "steps": 2
+            "name": "Slice of Pizza",
+            "steps": 1000
         },
         {
-            "name": "Toronto",
+            "name": "Big Mac",
             "steps": 2000
         },
-        
-    {
-            "name": "Western",
-            "steps": 2001
+        {
+            "name": "Large Fries",
+            "steps": 3000
         },
         {
-            "name": "Los Angeles",
-            "steps": 3100
+            "name": "Ice Cream Sundae",
+            "steps": 4000
         },
         {
-            "name": "Empire State",
-            "steps": 4032
+            "name": "Cake Slice",
+            "steps": 5000
         },
         {
-            "name": "CN Tower",
-            "steps": 5624
+            "name": "Steak (10 oz)",
+            "steps": 7000
         },
         {
-            "name": "Burj Khalifa",
-            "steps": 7654
+            "name": "Cheesecake Slice",
+            "steps": 8000
         },
         {
-            "name": "Mercury",
-            "steps": 10000
+            "name": "Thanksgiving Dinner",
+            "steps": 20000
         },
         {
-            "name": "Earth",
-            "steps": 50000
+            "name": "Large Pizza",
+            "steps": 40000
         },
         {
-            "name": "Solar System Edge",
-            "steps": 9321000000
+            "name": "Tub of Ice Cream",
+            "steps": 60000
+        },
+        {
+            "name": "Wedding Cake",
+            "steps": 100000
+        },
+        {
+            "name": "Earth's Largest Burrito",
+            "steps": 500000
+        },
+        {
+            "name": "Giant Turkey Leg",
+            "steps": 1000000
+        },
+        {
+            "name": "Uranium",
+            "steps": 20000000
         }
     ]
-}
+
+  }
+  
