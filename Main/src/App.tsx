@@ -38,7 +38,7 @@ export default function App() {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    const socket = io("http://localhost:3001", {
+    const socket = io("https://step-2-it-production.up.railway.app", {
       reconnection: true,
       reconnectionAttempts: Infinity,
       reconnectionDelay: 1000,
